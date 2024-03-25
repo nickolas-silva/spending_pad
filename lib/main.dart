@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:spending_pad/view/screens/login.dart';
-import 'package:spending_pad/view/screens/view_home.dart';
-
-import 'view/screens/teste.dart';
+import 'package:spending_pad/bindings/home_binding.dart';
+import 'package:spending_pad/bindings/login_binding.dart';
+import 'package:spending_pad/view/pages/home/home_page.dart';
+import 'package:spending_pad/view/pages/login/login_page.dart';
 
 void main() {
   runApp(const SpendingPad());
@@ -22,11 +22,18 @@ class SpendingPad extends StatelessWidget {
       ),
       //home: Home(),
       getPages: [
-        GetPage(name: '/login', page: () =>  Login()),
-        GetPage(name: '/home', page: () => Home()),
-        GetPage(name: '/teste', page: () => Teste()),
+        GetPage(
+          name: '/login',
+          page: () =>  const LoginPage(),
+          binding: LoginBinding()
+        ),
+        GetPage(
+          name: '/home', 
+          page: () => const HomePage(), 
+          binding: HomeBinding()
+        )
       ],
-      initialRoute: '/login',
+      initialRoute: '/home',
     );
   }
 }
