@@ -70,6 +70,93 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
 
+                  //Entradas e Saidas
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: white,
+                        borderRadius: BorderRadius.circular(12)
+                        
+                      ),
+                      padding: const EdgeInsets.all(25),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width: 100,
+                                padding: const EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: white,
+                                  border: Border.all(
+                                    color: lightGrey,
+                                    width: 1.5
+                                  )
+                                ),
+                                child: Text(
+                                  textAlign: TextAlign.center,
+                                  'Entradas',
+                                  style: TextStyle(
+                                    
+                                    color: green,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              ),
+
+                              Container(
+                                width: 100,
+                                padding: const EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: white,
+                                  border: Border.all(
+                                    color: lightGrey, width: 1.5
+                                  )
+                                ),
+                                child: Text(
+                                  textAlign: TextAlign.center,
+                                  'Saídas',
+                                  style: TextStyle(
+                                    color: red,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'R\$ 1.000,00',
+                                style: TextStyle(
+                                  color: green,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
+
+                              Text(
+                                'R\$ 1.000,00',
+                                style: TextStyle(
+                                  color: red,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  )
                   
 
 

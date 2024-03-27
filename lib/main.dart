@@ -20,7 +20,7 @@ class SpendingPad extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Poppins',
       ),
-      //home: Home(),
+      
       getPages: [
         GetPage(
           name: '/login',
