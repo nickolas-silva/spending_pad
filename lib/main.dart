@@ -4,6 +4,7 @@ import 'package:spending_pad/bindings/home_binding.dart';
 import 'package:spending_pad/bindings/login_binding.dart';
 import 'package:spending_pad/view/pages/home/home_page.dart';
 import 'package:spending_pad/view/pages/login/login_page.dart';
+import 'package:spending_pad/view/pages/register_expense/expense_page.dart';
 
 void main() {
   runApp(const SpendingPad());
@@ -30,6 +31,11 @@ class SpendingPad extends StatelessWidget {
         GetPage(
           name: '/home', 
           page: () => const HomePage(), 
+          binding: HomeBinding()
+        ),
+        GetPage(
+          name: '/register-expense',
+          page: () => const RegisterExpensePage(),
           binding: HomeBinding()
         )
       ],
