@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:spending_pad/controllers/home_controller.dart';
 import 'package:spending_pad/view/utils/colors.dart';
 import 'package:spending_pad/view/utils/drawer.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
 
   @override
@@ -24,7 +26,7 @@ class HomePage extends StatelessWidget {
         body: Column(
           children: [
             Container(
-              height: 210,
+              
               width: double.infinity,
               decoration: BoxDecoration(
                 color: darkBlue,
@@ -51,7 +53,7 @@ class HomePage extends StatelessWidget {
                         color: lightBlue,
                       ),
                       Text(
-                        '1.000,00',
+                        '${controller.total}',
                         style: TextStyle(
                           color: white,
                           fontSize: 50,
@@ -74,10 +76,11 @@ class HomePage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Container(
-                      decoration: BoxDecoration(
-                        color: white,
-                        borderRadius: BorderRadius.circular(12)
-                        
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15)
+                        )
                       ),
                       padding: const EdgeInsets.all(25),
                       child: Column(
@@ -107,7 +110,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-
+                    
                               Container(
                                 width: 100,
                                 padding: const EdgeInsets.all(4),
@@ -131,26 +134,46 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
 
+                          const SizedBox(height: 10),
+                    
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                'R\$ 1.000,00',
-                                style: TextStyle(
-                                  color: green,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold
-                                ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.arrow_upward,
+                                    color: green,
+                                  ),
+                                  const SizedBox(width: 10,),
+                                  Text(
+                                    '1.000,00',
+                                    style: TextStyle(
+                                        color: green,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  
+                                ],
                               ),
 
-                              Text(
-                                'R\$ 1.000,00',
-                                style: TextStyle(
-                                  color: red,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold
-                                ),
-                              )
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.arrow_downward,
+                                    color: red,
+                                  ),
+                                  const SizedBox(width: 10,),
+                                  Text(
+                                    '1.000,00',
+                                    style: TextStyle(
+                                        color: red,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  
+                                ],
+                              ),
                             ],
                           )
                         ],
@@ -162,8 +185,42 @@ class HomePage extends StatelessWidget {
 
                 ],
               ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: white,
+
+                ),
+                child: Column(
+                  children: [
+                    
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Mais Detalhes',
+                        style: TextStyle(
+                          color: lightGrey,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ),
+                    
+                  ]
+                )
+              ),
             )
           ],
-        ));
+        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: darkBlue,
+        child: const Icon(Icons.add, color: Colors.white,),
+      )
+    );
   }
 }
