@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:spending_pad/controllers/home_controller.dart';
 import 'package:spending_pad/model/expense.dart';
 import 'package:spending_pad/view/utils/colors.dart';
@@ -64,7 +65,7 @@ class HomePage extends GetView<HomeController> {
                     ),
 
                     Text(
-                      '10, Agosto, 2024',
+                      DateFormat('d, MMMM, y').format(DateTime.now()),
                       style: TextStyle(
                           color: white,
                           fontSize: 16,
