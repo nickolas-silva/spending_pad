@@ -6,8 +6,8 @@ import 'package:spending_pad/model/expense.dart';
 
 class HomeController extends GetxController{
   var total = 0.obs;
-  var spends = 0;
-  var entradas = 0;
+  var spends = 0.obs;
+  var entradas = 0.obs;
 
   var teste = '';
 
@@ -20,18 +20,6 @@ class HomeController extends GetxController{
 
   List<Expense> expenses = [];
   
-  // void addExpense(Expense expense){
-  //   expenses.add(expense);
-  //   total -= expense.value.toInt();
-  //   spends += expense.value.toInt();
-  //   update();
-  // }
-
-  void printL(){
-    print(expenseNameController.text);
-    print(expenseValueController.text);
-  }
-
   void addExpense(){
     Expense newExpense = Expense(
       title: expenseNameController.text,

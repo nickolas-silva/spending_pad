@@ -42,10 +42,21 @@ class ExpenseCard extends StatelessWidget {
                   fontWeight: FontWeight.bold
                 ),
               ),
+              if(expense.isDebit)
               Text(
                 '\$${expense.value.toStringAsFixed(2)}',
                 style: TextStyle(
                   color: red,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+
+              if(!expense.isDebit)
+              Text(
+                '\$${expense.value.toStringAsFixed(2)}',
+                style: TextStyle(
+                  color: green,
                   fontSize: 20,
                   fontWeight: FontWeight.bold
                 ),

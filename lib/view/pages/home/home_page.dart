@@ -135,14 +135,15 @@ class HomePage extends GetView<HomeController> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Text(
+                                    Obx(() => Text(
                                       controller.entradas.toString(),
                                       style: TextStyle(
                                         color: green,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold
                                       ),
-                                    ),
+                                    )
+                                    )
                                   ],
                                 ),
                                 Row(
@@ -154,14 +155,15 @@ class HomePage extends GetView<HomeController> {
                                     const SizedBox(
                                       width: 10,
                                     ),
-                                    Text(
+                                    Obx(() =>  Text(
                                       controller.spends.toString(),
                                       style: TextStyle(
                                         color: red,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold
                                       ),
-                                    ),
+                                    )
+                                    )
                                   ],
                                 ),
                               ],
@@ -199,6 +201,7 @@ class HomePage extends GetView<HomeController> {
                             builder: (context, snapshot) {
                               if (snapshot.hasData) {
                                 return ListView.builder(
+                                  physics: const BouncingScrollPhysics(),
                                   shrinkWrap: true,
                                   itemCount: snapshot.data!.length,
                                   itemBuilder: (context, index) {
