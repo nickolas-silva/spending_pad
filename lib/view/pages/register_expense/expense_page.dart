@@ -58,8 +58,31 @@ class RegisterExpensePage extends GetView<HomeController> {
                 keyboardType: TextInputType.number,
               ),
               const SizedBox(height: 20),
+
+              DropdownButtonFormField(
+                decoration: InputDecoration(
+                  labelText: 'Tipo de Despesa',
+                  labelStyle: TextStyle(color: white),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: white),
+                  ),
+                ),
+                
+                items: ['Debito', 'Credito'].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value, style: TextStyle(color: white),),
+                  );
+                }).toList(),
+                onChanged: (e) {
+                  controller.teste = e.toString();
+                  //print(e);
+                },
+              ),
+              const SizedBox(height: 20,),
               ElevatedButton(
                 onPressed: () {
+                  
                   controller.addExpense();
                   Get.back();
                   controller.update();

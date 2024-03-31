@@ -52,13 +52,14 @@ class HomePage extends GetView<HomeController> {
                           Icons.monetization_on_outlined,
                           color: lightBlue,
                         ),
-                        Text(
+                        Obx(() =>  Text(
                           '${controller.total}',
                           style: TextStyle(
-                              color: white,
-                              fontSize: 50,
-                              fontWeight: FontWeight.bold),
-                        )
+                            color: white,
+                            fontSize: 50,
+                            fontWeight: FontWeight.bold
+                          ),
+                        ))
                       ],
                     ),
 
@@ -135,7 +136,7 @@ class HomePage extends GetView<HomeController> {
                                       width: 10,
                                     ),
                                     Text(
-                                      '1.000,00',
+                                      controller.entradas.toString(),
                                       style: TextStyle(
                                         color: green,
                                         fontSize: 18,
@@ -154,11 +155,12 @@ class HomePage extends GetView<HomeController> {
                                       width: 10,
                                     ),
                                     Text(
-                                      '1.000,00',
+                                      controller.spends.toString(),
                                       style: TextStyle(
-                                          color: red,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
+                                        color: red,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -191,7 +193,7 @@ class HomePage extends GetView<HomeController> {
                       ),
                       const SizedBox(height: 15,),
                       Container(
-                        color: Colors.red,
+                        color: white,
                         child: StreamBuilder<List<Expense>>(
                             stream: controller.exStream, 
                             builder: (context, snapshot) {
@@ -200,14 +202,29 @@ class HomePage extends GetView<HomeController> {
                                   shrinkWrap: true,
                                   itemCount: snapshot.data!.length,
                                   itemBuilder: (context, index) {
-                                    return ExpenseCard(
-                                        expense: snapshot.data![index]);
+                                    return Padding(
+                                      padding: const EdgeInsets.all(10),
+                                      child: ExpenseCard(expense: snapshot.data![index])
+                                    );
                                   },
                                 );
                               } else if (snapshot.hasError) {
                                 return Text('Erro: ${snapshot.error}');
                               } else {
-                                return CircularProgressIndicator();
+                                return Column(
+                                  children: [
+                                    const SizedBox(height: 90),
+                                    Text(
+                                      'Nenhuma despesa cadastrada',
+                                      style: TextStyle(
+                                          color: lightGrey,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    const CircularProgressIndicator()
+                                  ],
+                                );
                               }
                             },
                           )
