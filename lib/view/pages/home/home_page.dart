@@ -41,9 +41,10 @@ class HomePage extends GetView<HomeController> {
                     Text(
                       'Total Disponível',
                       style: TextStyle(
-                          color: green,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
+                        color: green,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold
+                      ),
                     ),
 
                     Row(
@@ -54,7 +55,7 @@ class HomePage extends GetView<HomeController> {
                           color: lightBlue,
                         ),
                         Obx(() =>  Text(
-                          '${controller.total}',
+                          controller.total.toStringAsFixed(1),
                           style: TextStyle(
                             color: white,
                             fontSize: 50,
@@ -137,7 +138,7 @@ class HomePage extends GetView<HomeController> {
                                       width: 10,
                                     ),
                                     Obx(() => Text(
-                                      controller.entradas.toString(),
+                                      controller.entradas.toStringAsFixed(1),
                                       style: TextStyle(
                                         color: green,
                                         fontSize: 18,
@@ -157,7 +158,7 @@ class HomePage extends GetView<HomeController> {
                                       width: 10,
                                     ),
                                     Obx(() =>  Text(
-                                      controller.spends.toString(),
+                                      controller.spends.toStringAsFixed(1),
                                       style: TextStyle(
                                         color: red,
                                         fontSize: 18,
@@ -240,15 +241,16 @@ class HomePage extends GetView<HomeController> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Get.toNamed('/register-expense');
-          },
-          backgroundColor: darkBlue,
-          child: const Icon(
-            Icons.add,
-            color: Colors.white,
-          ),
-        ));
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.toNamed('/register-expense');
+        },
+        backgroundColor: darkBlue,
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      )
+    );
   }
 }
