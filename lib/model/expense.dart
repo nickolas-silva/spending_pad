@@ -21,7 +21,10 @@ class Expense{
     };
     return map;
   }
-  
+  @override
+  String toString() {
+    return 'Expense{title: $title, date: $date, value: $value, isDebit: $isDebit}';
+  }
   // Expense.fromMap(Map<String, Object?> map){
   //   title = map[columnTitle] as String;
   //   date = DateTime.parse(map[columnDate] as String);
