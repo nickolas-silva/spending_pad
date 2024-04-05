@@ -209,7 +209,7 @@ class HomePage extends GetView<HomeController> {
                                   itemBuilder: (context, index) {
                                     return Padding(
                                       padding: const EdgeInsets.all(10),
-                                      child: ExpenseCard(expense: snapshot.data![index])
+                                      child: ExpenseCard(expense: snapshot.data![index], index: index)
                                     );
                                   },
                                 );

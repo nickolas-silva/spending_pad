@@ -24,4 +24,10 @@ class Db{
     final db = await Db.database();
     return db.query(table);
   }
+
+  static Future<void> delete(String table, String id) async {
+    final db = await Db.database();
+    await db.delete(table, where: 'id = ?', whereArgs: [id]);
+  }
+
 }

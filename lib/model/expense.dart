@@ -1,19 +1,30 @@
-class Expense{
+class Expense {
+  String id;
   String title;
   DateTime date;
   double value;
   bool isDebit;
-  
-  Expense({required this.title, required this.date, required this.isDebit, required this.value});
-  
+
+  Expense(
+    {
+      required this.id,
+      required this.title,
+      required this.date,
+      required this.isDebit,
+      required this.value
+    }
+  );
+
   //DATABASE COLUMNS
+  final String columnId = 'id';
   final String columnTitle = 'title';
   final String columnDate = 'date';
   final String columnValue = 'value';
   final String columnIsDebit = 'isDebit';
 
-  Map<String, Object?> toMap(){
+  Map<String, Object?> toMap() {
     var map = <String, Object?>{
+      columnId: id,
       columnTitle: title,
       columnDate: date.toIso8601String(),
       columnValue: value,
@@ -21,6 +32,7 @@ class Expense{
     };
     return map;
   }
+
   @override
   String toString() {
     return 'Expense{title: $title, date: $date, value: $value, isDebit: $isDebit}';
